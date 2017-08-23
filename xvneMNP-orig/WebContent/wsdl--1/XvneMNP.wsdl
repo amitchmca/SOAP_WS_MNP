@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="XvneMNP" targetNamespace="http://group.singtel.com/mvne/mnp" xmlns:ns1="http://group.singtel.com/mvne/mnp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://group.singtel.com/mvne/mnp" schemaLocation="SingtelXvneMNP_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="xvneSDResponse">
+    <wsdl:part name="parameters" element="ns1:xvneSDResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="xvneNPOResponse">
+    <wsdl:part name="parameters" element="ns1:xvneNPOResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="submitNPOT">
+    <wsdl:part name="parameters" element="ns1:submitNPOT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="ns1:Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="xvneSD">
+    <wsdl:part name="parameters" element="ns1:xvneSD">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="submitNPOTResponse">
+    <wsdl:part name="parameters" element="ns1:submitNPOTResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="xvneNPO">
+    <wsdl:part name="parameters" element="ns1:xvneNPO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="XvneMNP">
+    <wsdl:operation name="xvneNPO">
+      <wsdl:input name="xvneNPO" message="ns1:xvneNPO">
+    </wsdl:input>
+      <wsdl:output name="xvneNPOResponse" message="ns1:xvneNPOResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="ns1:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitNPOT">
+      <wsdl:input name="submitNPOT" message="ns1:submitNPOT">
+    </wsdl:input>
+      <wsdl:output name="submitNPOTResponse" message="ns1:submitNPOTResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="ns1:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="xvneSD">
+      <wsdl:input name="xvneSD" message="ns1:xvneSD">
+    </wsdl:input>
+      <wsdl:output name="xvneSDResponse" message="ns1:xvneSDResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="ns1:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

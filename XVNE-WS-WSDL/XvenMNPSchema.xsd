@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:complexType name="sdRequest">
+      <xsd:sequence>
+         <xsd:element name="author" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageReceiverTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageSenderTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="referenceId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="serviceType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="subscriberNumber" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="xvneNPORequest">
+      <xsd:sequence>
+         <xsd:element name="portDetails" type="portDetails" minOccurs="0"/>
+         <xsd:element name="mvno" type="mvno" minOccurs="0"/>
+         <xsd:element name="subscriberSequence" type="subscriberSequence" minOccurs="0"/>
+         <xsd:element name="customer" type="customer" minOccurs="0"/>
+         <xsd:element name="params" type="params" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="npoRequest">
+      <xsd:sequence>
+         <xsd:element name="author" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="donorTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageReceiverTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageSenderTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="ownerId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="ownerName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="recipientTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="referenceId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="serviceType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="subscriberNumber" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="timestamp" type="xsd:dateTime" minOccurs="0"/>
+         <xsd:element name="typeOFId" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="error">
+      <xsd:sequence>
+         <xsd:element name="errCode" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="errDesc" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="errAction" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="params">
+      <xsd:sequence>
+         <xsd:element name="Param" type="param" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="npoResponse">
+      <xsd:sequence>
+         <xsd:element name="donorTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageReceiverTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageSenderTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="recipientTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="referenceId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="resultCode" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="resultText" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="serviceType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="subscriberNumber" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="timestamp" type="xsd:dateTime" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="result">
+      <xsd:sequence>
+         <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="code" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="desc" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="xvneNPOResponse">
+      <xsd:sequence>
+         <xsd:element name="portDetails" type="portDetails" minOccurs="0"/>
+         <xsd:element name="mvno" type="mvno" minOccurs="0"/>
+         <xsd:element name="subscriberSequence" type="subscriberSequence" minOccurs="0"/>
+         <xsd:element name="customer" type="customer" minOccurs="0"/>
+         <xsd:element name="params" type="params" minOccurs="0"/>
+         <xsd:element name="result" type="result" minOccurs="0"/>
+         <xsd:element name="error" type="error" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="sd">
+      <xsd:sequence>
+         <xsd:element name="author" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="donorTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageReceiverTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageSenderTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="recipientTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="referenceId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="serviceType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="subscriberNumber" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="xvneNPOTRequest">
+      <xsd:sequence>
+         <xsd:element name="portDetails" type="portDetails" minOccurs="0"/>
+         <xsd:element name="mvno" type="mvno" minOccurs="0"/>
+         <xsd:element name="subscriberSequence" type="subscriberSequence" minOccurs="0"/>
+         <xsd:element name="customer" type="customer" minOccurs="0"/>
+         <xsd:element name="params" type="params" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="xvneNPOTResponse">
+      <xsd:sequence>
+         <xsd:element name="portDetails" type="portDetails" minOccurs="0"/>
+         <xsd:element name="mvno" type="mvno" minOccurs="0"/>
+         <xsd:element name="subscriberSequence" type="subscriberSequence" minOccurs="0"/>
+         <xsd:element name="customer" type="customer" minOccurs="0"/>
+         <xsd:element name="params" type="params" minOccurs="0"/>
+         <xsd:element name="result" type="result" minOccurs="0"/>
+         <xsd:element name="error" type="error" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="param">
+      <xsd:sequence>
+         <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="portDetails">
+      <xsd:sequence>
+         <xsd:element name="MessageSenderTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="MessageReceiverTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="RequestId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="timeStamp" type="xsd:dateTime" minOccurs="0"/>
+         <xsd:element name="ReferenceId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="RecipientTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="DonorTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="ServiceType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Author" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="sdResponse">
+      <xsd:sequence>
+         <xsd:element name="messageReceiverTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageSenderTelco" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="referenceId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="resultCode" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="resultText" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="serviceType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="subscriberNumber" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="timestamp" type="xsd:dateTime" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="mvno">
+      <xsd:sequence>
+         <xsd:element name="code" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="xvneSDRequest">
+      <xsd:sequence>
+         <xsd:element name="portDetails" type="portDetails" minOccurs="0"/>
+         <xsd:element name="mvno" type="mvno" minOccurs="0"/>
+         <xsd:element name="subscriberSequence" type="subscriberSequence" minOccurs="0"/>
+         <xsd:element name="customer" type="customer" minOccurs="0"/>
+         <xsd:element name="params" type="params" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="subscriberSequence">
+      <xsd:sequence>
+         <xsd:element name="Subscriber" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="xvneSDResponse">
+      <xsd:sequence>
+         <xsd:element name="portDetails" type="portDetails" minOccurs="0"/>
+         <xsd:element name="mvno" type="mvno" minOccurs="0"/>
+         <xsd:element name="subscriberSequence" type="subscriberSequence" minOccurs="0"/>
+         <xsd:element name="customer" type="customer" minOccurs="0"/>
+         <xsd:element name="params" type="params" minOccurs="0"/>
+         <xsd:element name="result" type="result" minOccurs="0"/>
+         <xsd:element name="error" type="error" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="customer">
+      <xsd:sequence>
+         <xsd:element name="ownerId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="ownerName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="typeOfId" type="xsd:int"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="MvneMNPReq" type="xvneSDRequest"/>
+   <xsd:element name="PortDetails" type="portDetails"/>
+   <xsd:element name="SubscriberSequence" type="subscriberSequence"/>
+   <xsd:element name="MvneMNP" type="npoResponse"/>
+   <xsd:element name="Param" type="param"/>
+   <xsd:element name="Error" type="error"/>
+   <xsd:element name="Params" type="params"/>
+   <xsd:element name="MvneNPORes" type="xvneNPOResponse"/>
+   <xsd:element name="MvneNPOTPRes" type="xvneNPOTResponse"/>
+   <xsd:element name="MvneMNPRes" type="xvneSDResponse"/>
+</xsd:schema>

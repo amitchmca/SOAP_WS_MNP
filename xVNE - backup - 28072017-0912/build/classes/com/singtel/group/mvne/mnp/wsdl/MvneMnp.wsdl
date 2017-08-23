@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mnp.mvne.group.singtel.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://mnp.mvne.group.singtel.com" xmlns:intf="http://mnp.mvne.group.singtel.com" xmlns:tns1="http://types.mnp.mvne.group.singtel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://mnp.mvne.group.singtel.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://types.mnp.mvne.group.singtel.com"/>
+   <element name="xvneNPO">
+    <complexType>
+     <sequence>
+      <element name="xvneNpoReq" type="tns1:XvneNPORequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="xvneNPOResponse">
+    <complexType>
+     <sequence>
+      <element name="xvneNPOReturn" type="tns1:XvneNPOResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="xvneSD">
+    <complexType>
+     <sequence>
+      <element name="sdReq" type="tns1:XvneSDRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="xvneSDResponse">
+    <complexType>
+     <sequence>
+      <element name="xvneSDReturn" type="tns1:XvneSDResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="xvneNPOT">
+    <complexType>
+     <sequence>
+      <element name="npotReq" type="tns1:XvneNPOTRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="xvneNPOTResponse">
+    <complexType>
+     <sequence>
+      <element name="submitNPOTReturn" type="tns1:XvneNPOTResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://types.mnp.mvne.group.singtel.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://mnp.mvne.group.singtel.com"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <complexType name="Customer">
+    <sequence>
+     <element name="ownerId" nillable="true" type="xsd:string"/>
+     <element name="ownerName" nillable="true" type="xsd:string"/>
+     <element name="typeOfId" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="MVNO">
+    <sequence>
+     <element name="code" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="PortDetails">
+    <sequence>
+     <element name="author" nillable="true" type="xsd:string"/>
+     <element name="donorTelco" nillable="true" type="xsd:string"/>
+     <element name="messageReceiverTelco" nillable="true" type="xsd:string"/>
+     <element name="messageSenderTelco" nillable="true" type="xsd:string"/>
+     <element name="messageType" nillable="true" type="xsd:string"/>
+     <element name="recipientTelco" nillable="true" type="xsd:string"/>
+     <element name="referenceId" nillable="true" type="xsd:string"/>
+     <element name="requestId" nillable="true" type="xsd:string"/>
+     <element name="serviceType" nillable="true" type="xsd:string"/>
+     <element name="timestamp" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="Params">
+    <sequence>
+     <element name="params" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="SubscriberSequence">
+    <sequence>
+     <element name="subscriber" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="XvneNPORequest">
+    <sequence>
+     <element name="customer" nillable="true" type="tns1:Customer"/>
+     <element name="mvno" nillable="true" type="tns1:MVNO"/>
+     <element name="npo" nillable="true" type="tns1:PortDetails"/>
+     <element name="params" nillable="true" type="tns1:Params"/>
+     <element name="subscriberSequence" nillable="true" type="tns1:SubscriberSequence"/>
+    </sequence>
+   </complexType>
+   <complexType name="Error">
+    <sequence>
+     <element name="errAction" nillable="true" type="xsd:string"/>
+     <element name="errCode" nillable="true" type="xsd:string"/>
+     <element name="errDesc" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Result">
+    <sequence>
+     <element name="action" nillable="true" type="xsd:string"/>
+     <element name="code" nillable="true" type="xsd:string"/>
+     <element name="desc" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="XvneNPOResponse">
+    <sequence>
+     <element name="customer" nillable="true" type="tns1:Customer"/>
+     <element name="error" nillable="true" type="tns1:Error"/>
+     <element name="mvno" nillable="true" type="tns1:MVNO"/>
+     <element name="npo" nillable="true" type="tns1:PortDetails"/>
+     <element name="params" nillable="true" type="tns1:Params"/>
+     <element name="result" nillable="true" type="tns1:Result"/>
+     <element name="subscriberSequence" nillable="true" type="tns1:SubscriberSequence"/>
+    </sequence>
+   </complexType>
+   <complexType name="XvneSDRequest">
+    <sequence>
+     <element name="customer" nillable="true" type="tns1:Customer"/>
+     <element name="mvno" nillable="true" type="tns1:MVNO"/>
+     <element name="params" nillable="true" type="tns1:Params"/>
+     <element name="portDetails" nillable="true" type="tns1:PortDetails"/>
+     <element name="subscriberSequence" nillable="true" type="tns1:SubscriberSequence"/>
+    </sequence>
+   </complexType>
+   <complexType name="XvneSDResponse">
+    <sequence>
+     <element name="customer" nillable="true" type="tns1:Customer"/>
+     <element name="error" nillable="true" type="tns1:Error"/>
+     <element name="mvno" nillable="true" type="tns1:MVNO"/>
+     <element name="params" nillable="true" type="tns1:Params"/>
+     <element name="portDetails" nillable="true" type="tns1:PortDetails"/>
+     <element name="result" nillable="true" type="tns1:Result"/>
+     <element name="subscriberSequence" nillable="true" type="tns1:SubscriberSequence"/>
+    </sequence>
+   </complexType>
+   <complexType name="XvneNPOTRequest">
+    <sequence>
+     <element name="customer" nillable="true" type="tns1:Customer"/>
+     <element name="mvno" nillable="true" type="tns1:MVNO"/>
+     <element name="params" nillable="true" type="tns1:Params"/>
+     <element name="portDetails" nillable="true" type="tns1:PortDetails"/>
+     <element name="subscriberSequence" nillable="true" type="tns1:SubscriberSequence"/>
+    </sequence>
+   </complexType>
+   <complexType name="XvneNPOTResponse">
+    <sequence>
+     <element name="customer" nillable="true" type="tns1:Customer"/>
+     <element name="error" nillable="true" type="tns1:Error"/>
+     <element name="mvno" nillable="true" type="tns1:MVNO"/>
+     <element name="params" nillable="true" type="tns1:Params"/>
+     <element name="portDetails" nillable="true" type="tns1:PortDetails"/>
+     <element name="result" nillable="true" type="tns1:Result"/>
+     <element name="subscriberSequence" nillable="true" type="tns1:SubscriberSequence"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://mnp.mvne.group.singtel.com"/>
+   <import namespace="http://types.mnp.mvne.group.singtel.com"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="xvneSDResponse">
+
+      <wsdl:part element="impl:xvneSDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="xvneNPOTRequest">
+
+      <wsdl:part element="impl:xvneNPOT" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="xvneNPOTResponse">
+
+      <wsdl:part element="impl:xvneNPOTResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="xvneSDRequest">
+
+      <wsdl:part element="impl:xvneSD" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="xvneNPORequest">
+
+      <wsdl:part element="impl:xvneNPO" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="xvneNPOResponse">
+
+      <wsdl:part element="impl:xvneNPOResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MvneMnp">
+
+      <wsdl:operation name="xvneNPO">
+
+         <wsdl:input message="impl:xvneNPORequest" name="xvneNPORequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:xvneNPOResponse" name="xvneNPOResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="xvneSD">
+
+         <wsdl:input message="impl:xvneSDRequest" name="xvneSDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:xvneSDResponse" name="xvneSDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="xvneNPOT">
+
+         <wsdl:input message="impl:xvneNPOTRequest" name="submitNPOTRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:xvneNPOTResponse" name="submitNPOTResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MvneMnpSoapBinding" type="impl:MvneMnp">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="xvneNPO">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="xvneNPORequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="xvneNPOResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="xvneSD">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="xvneSDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="xvneSDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="xvneNPOT">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="submitNPOTRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="submitNPOTResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MvneMnpService">
+
+      <wsdl:port binding="impl:MvneMnpSoapBinding" name="MvneMnp">
+
+         <wsdlsoap:address location="http://localhost:8080/xVNE/services/MvneMnp"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

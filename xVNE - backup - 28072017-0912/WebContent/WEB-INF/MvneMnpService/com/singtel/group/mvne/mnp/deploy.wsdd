@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MvneMnpService WSDL service -->
+
+  <service name="MvneMnp" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://mnp.mvne.group.singtel.com"/>
+      <parameter name="wsdlServiceElement" value="MvneMnpService"/>
+      <parameter name="schemaQualified" value="http://types.mnp.mvne.group.singtel.com,http://xml.apache.org/xml-soap,http://mnp.mvne.group.singtel.com"/>
+      <parameter name="wsdlServicePort" value="MvneMnp"/>
+      <parameter name="className" value="com.singtel.group.mvne.mnp.MvneMnp"/>
+      <parameter name="wsdlPortType" value="MvneMnp"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://mnp.mvne.group.singtel.com" xmlns:retNS="http://mnp.mvne.group.singtel.com" xmlns:rtns="http://types.mnp.mvne.group.singtel.com" name="xvneNPO" qname="operNS:xvneNPO" returnQName="retNS:xvneNPOReturn" returnType="rtns:XvneNPOResponse" soapAction="">
+        <parameter xmlns:pns="http://mnp.mvne.group.singtel.com" xmlns:tns="http://types.mnp.mvne.group.singtel.com" qname="pns:xvneNpoReq" type="tns:XvneNPORequest"/>
+      </operation>
+      <operation xmlns:operNS="http://mnp.mvne.group.singtel.com" xmlns:retNS="http://mnp.mvne.group.singtel.com" xmlns:rtns="http://types.mnp.mvne.group.singtel.com" name="xvneSD" qname="operNS:xvneSD" returnQName="retNS:xvneSDReturn" returnType="rtns:XvneSDResponse" soapAction="">
+        <parameter xmlns:pns="http://mnp.mvne.group.singtel.com" xmlns:tns="http://types.mnp.mvne.group.singtel.com" qname="pns:sdReq" type="tns:XvneSDRequest"/>
+      </operation>
+      <operation xmlns:operNS="http://mnp.mvne.group.singtel.com" xmlns:retNS="http://mnp.mvne.group.singtel.com" xmlns:rtns="http://types.mnp.mvne.group.singtel.com" name="submitNPOT" qname="operNS:submitNPOT" returnQName="retNS:submitNPOTReturn" returnType="rtns:XvneNPOTResponse" soapAction="">
+        <parameter xmlns:pns="http://mnp.mvne.group.singtel.com" xmlns:tns="http://types.mnp.mvne.group.singtel.com" qname="pns:npotReq" type="tns:XvneNPOTRequest"/>
+      </operation>
+      <parameter name="allowedMethods" value="xvneSD xvneNPO submitNPOT"/>
+
+      <typeMapping xmlns:ns="http://mnp.mvne.group.singtel.com" qname="ns:&gt;xvneSD" type="java:com.singtel.group.mvne.mnp.XvneSD" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:XvneNPOResponse" type="java:com.singtel.group.mvne.mnp.types.XvneNPOResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://mnp.mvne.group.singtel.com" qname="ns:&gt;xvneSDResponse" type="java:com.singtel.group.mvne.mnp.XvneSDResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://mnp.mvne.group.singtel.com" qname="ns:&gt;xvneNPO" type="java:com.singtel.group.mvne.mnp.XvneNPO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:Params" type="java:com.singtel.group.mvne.mnp.types.Params" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:Error" type="java:com.singtel.group.mvne.mnp.types.Error" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:XvneNPORequest" type="java:com.singtel.group.mvne.mnp.types.XvneNPORequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:SubscriberSequence" type="java:com.singtel.group.mvne.mnp.types.SubscriberSequence" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://mnp.mvne.group.singtel.com" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://mnp.mvne.group.singtel.com" qname="ns:&gt;submitNPOT" type="java:com.singtel.group.mvne.mnp.SubmitNPOT" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:XvneSDRequest" type="java:com.singtel.group.mvne.mnp.types.XvneSDRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:PortDetails" type="java:com.singtel.group.mvne.mnp.types.PortDetails" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:Customer" type="java:com.singtel.group.mvne.mnp.types.Customer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:XvneSDResponse" type="java:com.singtel.group.mvne.mnp.types.XvneSDResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:XvneNPOTRequest" type="java:com.singtel.group.mvne.mnp.types.XvneNPOTRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:MVNO" type="java:com.singtel.group.mvne.mnp.types.MVNO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:Result" type="java:com.singtel.group.mvne.mnp.types.Result" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://types.mnp.mvne.group.singtel.com" qname="ns:XvneNPOTResponse" type="java:com.singtel.group.mvne.mnp.types.XvneNPOTResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://mnp.mvne.group.singtel.com" qname="ns:&gt;submitNPOTResponse" type="java:com.singtel.group.mvne.mnp.SubmitNPOTResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://mnp.mvne.group.singtel.com" qname="ns:&gt;xvneNPOResponse" type="java:com.singtel.group.mvne.mnp.XvneNPOResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

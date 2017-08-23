@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;xvneMNP&apos; to &apos;xvneMNP-orig&apos;" description="Rename resource &apos;xvneMNP&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/xvneMNP" name="xvneMNP-orig" stamp="1501465505182" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;xvneMNPEAR&apos;" deleteContents="false" description="Delete resource &apos;xvneMNPEAR&apos;" element1="/xvneMNPEAR" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1501465629612"/>
+</session>

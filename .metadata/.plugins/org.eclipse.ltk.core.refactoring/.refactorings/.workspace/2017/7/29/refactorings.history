@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;xvneInternalMNP&apos; to &apos;xvneMNPService&apos;" description="Rename resource &apos;xvneInternalMNP&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/xvneInternalMNP" name="xvneMNPService" stamp="1500721530735" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;xvneMNPService&apos; to &apos;xvneMNPWebService&apos;" description="Rename resource &apos;xvneMNPService&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/xvneMNPService" name="xvneMNPWebService" stamp="1500721551163" updateReferences="true"/>
+</session>

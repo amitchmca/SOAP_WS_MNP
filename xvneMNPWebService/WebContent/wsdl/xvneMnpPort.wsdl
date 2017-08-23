@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/xvneMnpService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="xvneMnpService" targetNamespace="http://www.example.org/xvneMnpService/">
+
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/xvneMnpService/">
+      <xsd:element name="getXvneCustDetails">
+        <xsd:complexType>
+        	<xsd:sequence>
+
+        		<xsd:element name="SubscriberNumber" type="tns:SubscriberNumberType">
+
+        		</xsd:element>
+        		<xsd:element name="mvno" type="xsd:string"/>
+
+
+        		<xsd:element name="requestId" type="xsd:string"/>
+
+
+        	</xsd:sequence>
+
+
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getXvneCustDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="SubscriberNumber" type="tns:SubscriberNumberType">
+          	</xsd:element>
+          	<xsd:element name="mvno" type="xsd:string"/>
+          	<xsd:element name="reqId" type="xsd:string"/>
+          	<xsd:element name="error" type="tns:errorType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+    
+        
+      <xsd:complexType name="SubscriberNumberType">
+      	<xsd:sequence>
+      		<xsd:element name="SubscriberNumber" type="xsd:string"/>
+      		<xsd:element name="ServiceType" type="xsd:int"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="serviceDisconnect">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="SubscriberNumber" type="tns:SubscriberNumberType">
+      			</xsd:element>
+      			<xsd:element name="error" type="tns:errorType"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="serviceDisconnectResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="errorType">
+      	<xsd:sequence>
+
+                    <xsd:element name="errorCode" type="xsd:string"/>
+                    <xsd:element name="errorDetails" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getXvneCustDetailsRequest">
+    <wsdl:part element="tns:getXvneCustDetails" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getXvneCustDetailsResponse">
+    <wsdl:part element="tns:getXvneCustDetailsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="serviceDisconnectRequest">
+  	<wsdl:part element="tns:serviceDisconnect" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="serviceDisconnectResponse">
+  	<wsdl:part element="tns:serviceDisconnectResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="xvneMnpPortType">
+    <wsdl:operation name="getXvneCustDetails">
+      <wsdl:input message="tns:getXvneCustDetailsRequest"/>
+      <wsdl:output message="tns:getXvneCustDetailsResponse"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+  <wsdl:binding name="xvneMnpServiceBinding" type="tns:xvneMnpPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getXvneCustDetails">
+      <soap:operation soapAction="http://www.example.org/xvneMnpService/getXvneCustDetails"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="xvneMnpWebService">
+    <wsdl:port binding="tns:xvneMnpServiceBinding" name="xvneMnpPort">
+      <soap:address location="http://localhost:9000/xvneMNPWebService/services/xvneMnpPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

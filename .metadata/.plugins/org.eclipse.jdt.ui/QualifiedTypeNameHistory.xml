@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.example.www.xvneMnpService.XvneMnpServiceBindingImpl"/>
+<fullyQualifiedTypeName name="org.example.www.xvneMnpService.SubscriberNumberType"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.ws.MvneMnpImpl"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.types.SubmitPortRequest"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.types.SubmitPortResponse"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.types.NPOResponse"/>
+<fullyQualifiedTypeName name="javax.jws.WebParam"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.MvneMnpIf"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
+<fullyQualifiedTypeName name="javax.jws.WebService"/>
+<fullyQualifiedTypeName name="javax.jws.WebResult"/>
+<fullyQualifiedTypeName name="types.NPO"/>
+<fullyQualifiedTypeName name="types.MVNO"/>
+<fullyQualifiedTypeName name="types.Params"/>
+<fullyQualifiedTypeName name="types.Result"/>
+<fullyQualifiedTypeName name="javax.jws.WebMethod"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.types.Result"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlAccessType"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.types.Error"/>
+<fullyQualifiedTypeName name="org.eclipse.persistence.oxm.annotations.XmlProperty"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlType"/>
+<fullyQualifiedTypeName name="javax.jws.soap.SOAPBinding.ParameterStyle"/>
+<fullyQualifiedTypeName name="com.singtel.group.mvne.mnp.types.SubscriberSequence"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+</qualifiedTypeNameHistroy>

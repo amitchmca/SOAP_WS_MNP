@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:xvneMNP" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:MVNE-MNP" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:MVNE_MNP" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:xvneInternalMNP" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:xVNE" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:xVNE-2" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:xvneMNPWebService" serverId="Tomcat v9.0 Server at localhost"/>
+</modules>

@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="xvneMNPProtocol.xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="xvneMNPProtocol.xsd">
+    <wsdl:documentation>xvnemnpservicePort</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns="xvneMNPProtocol.xsd" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="xvneMNPProtocol.xsd">
+            <xs:element name="AccountNumber">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+          <!--  <xs:element name="ActivationQuota">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> -->
+            <xs:complexType name="AuthorType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" ref="Name"/>
+                    <xs:element minOccurs="0" ref="Phone"/>
+                    <xs:element minOccurs="0" ref="Telefax"/>
+                    <xs:element minOccurs="0" ref="Email"/>
+                    <xs:element minOccurs="0" ref="Date"/>
+                </xs:sequence>
+            </xs:complexType>
+        <!--    <xs:complexType name="BroadcastInfoType">
+                <xs:sequence>
+                    <xs:element ref="SubscriberNumber"/>
+                    <xs:element ref="BroadcastAction"/>
+                    <xs:element ref="CutoffTime"/>
+                    <xs:element ref="ServiceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BroadcastAction">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> -->
+            <xs:element name="ByLOA">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[01]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="CANType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ReferenceId"/>
+                    <xs:element ref="ReasonCode"/>
+                    <xs:element minOccurs="0" ref="ReasonText"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="CompanyName">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="CorporateCustomerType">
+                <xs:sequence>
+                    <xs:element ref="CompanyName"/>
+                    <xs:element minOccurs="0" ref="RegistrationCode"/>
+                    <xs:element minOccurs="0" ref="AccountNumber"/>
+                    <xs:element ref="SignatureDate"/>
+                </xs:sequence>
+            </xs:complexType>
+       <!-- <xs:element name="CutoffTime" type="xs:dateTime"/>
+             <xs:element name="DataFileName">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> -->
+            <xs:element name="Date" type="xs:date"/>
+            <xs:complexType name="DateRangeType">
+                <xs:sequence>
+                    <xs:element ref="DateRangeStart"/>
+                    <xs:element ref="DateRangeEnd"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DateRangeEnd" type="xs:date"/>
+            <xs:element name="DateRangeStart" type="xs:date"/>
+     <!--   <xs:complexType name="DonorQuotaType"> 
+                <xs:sequence>
+                    <xs:element ref="DonorTelco"/>
+                    <xs:element ref="QuotaAmount1"/>
+                    <xs:element ref="QuotaAmount2"/>
+                    <xs:element ref="QuotaAmount3"/>
+                </xs:sequence>
+            </xs:complexType> -->
+            <xs:element name="DonorTelco">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+      <!--  <xs:element name="DownloadTime" type="xs:dateTime"/> -->
+            <xs:element name="Email">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+      <!--  <xs:complexType name="ErrorType"> 
+                <xs:sequence>
+                    <xs:element ref="ErrorCode"/>
+                    <xs:element minOccurs="0" ref="ErrorText"/>
+                    <xs:element minOccurs="0" ref="RecommendTransferTime"/>
+                </xs:sequence>
+            </xs:complexType> -->
+            <xs:element name="ErrorCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ErrorText">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+       <!-- <xs:element name="MaxSNPerNPO">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> -->
+            <xs:element name="MessageSenderTelco"> 
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="MessageReceiverTelco">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="xvneMNPFrame">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded">
+                    <xs:element maxOccurs="unbounded" name="NPO" type="NPOType"/> 
+				<!--	<xs:element maxOccurs="unbounded" name="NPOC" type="NPOCType"/>
+                        <xs:element maxOccurs="unbounded" name="NPOR" type="NPORType"/>
+                        <xs:element maxOccurs="unbounded" name="SC" type="SCType"/> 	-->
+                        <xs:element maxOccurs="unbounded" name="SD" type="SDType"/>
+                 <!--     <xs:element maxOccurs="unbounded" name="SDRsp" type="SDRspType"/> -->
+                        <xs:element maxOccurs="unbounded" name="CAN" type="CANType"/>
+                        <xs:element maxOccurs="unbounded" name="NPOT" type="NPOTType"/>
+                 <!--   <xs:element maxOccurs="unbounded" name="NOTE" type="NOTEType"/>
+                        <xs:element maxOccurs="unbounded" name="SD-NOTICE" type="SD-NOTICEType"/>
+                        <xs:element maxOccurs="unbounded" name="SD-NOTICERsp" type="SD-NOTICERspType"/>
+                        <xs:element maxOccurs="unbounded" name="SC-NOTICE" type="SC-NOTICEType"/>
+                        <xs:element maxOccurs="unbounded" name="SC-NOTICERsp" type="SC-NOTICERspType"/>
+                        <xs:element maxOccurs="unbounded" name="RDBPD" type="RDBPDType"/>
+                        <xs:element maxOccurs="unbounded" name="RDBPDRsp" type="RDBPDRspType"/>
+                        <xs:element maxOccurs="unbounded" name="RDBFD" type="RDBFDType"/>
+                        <xs:element maxOccurs="unbounded" name="RDBFDRsp" type="RDBFDRspType"/>
+                        <xs:element maxOccurs="unbounded" name="RNA" type="RNAType"/>
+                        <xs:element maxOccurs="unbounded" name="RNARsp" type="RNARspType"/>
+                        <xs:element maxOccurs="unbounded" name="TQ" type="TQType"/>
+                        <xs:element maxOccurs="unbounded" name="TQRsp" type="TQRspType"/>
+                        <xs:element maxOccurs="unbounded" name="NPOSQ" type="NPOSQType"/>
+                        <xs:element maxOccurs="unbounded" name="NPOSQRsp" type="NPOSQRspType"/> -->
+                    </xs:choice>
+                    <xs:attribute name="version" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MessageType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+     <!--   <xs:complexType name="NOTEType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="MessageType"/>
+                    <xs:element name="Error" type="ErrorType"/>
+                    <xs:element minOccurs="0" ref="ReferenceRequestId"/>
+                    <xs:element minOccurs="0" ref="ReferenceTimestamp"/>
+                    <xs:element minOccurs="0" ref="RecommendTransferTime"/>
+                    <xs:element minOccurs="0" ref="ReferenceId"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="SubscriberResult" type="SubscriberResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:complexType name="NPOType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ReferenceId"/>
+                    <xs:element ref="RecipientTelco"/>
+                    <xs:element ref="DonorTelco"/>
+                    <xs:element minOccurs="0" ref="OldReferenceId"/>
+                    <xs:element minOccurs="0" ref="ByLOA"/>
+                    <xs:element minOccurs="0" ref="UndertakingAck"/>
+                    <xs:element name="SubscriberSequence">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="SubscriberNumber" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element ref="OrderedTransferTime"/>
+                    <xs:element minOccurs="0" ref="OrderedApprovalTime"/>
+                    <xs:element ref="RouteNumber"/>
+                    <xs:element ref="ServiceType"/>
+                    <xs:choice>
+                        <xs:element minOccurs="0" name="PersonCustomer" type="PersonCustomerType"/>
+                        <xs:element minOccurs="0" name="CorporateCustomer" type="CorporateCustomerType"/>
+                    </xs:choice>
+                    <xs:element name="Author" type="AuthorType"/>
+                    <xs:element minOccurs="0" ref="Remark"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+     <!--   <xs:complexType name="NPOCType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ReferenceId"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+			<xs:complexType name="NPORType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ReferenceId"/>
+                    <xs:element maxOccurs="unbounded" name="SubscriberResult" type="SubscriberResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:complexType name="NPOTType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element name="SubscriberSequence">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="SubscriberNumber" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="Name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OldReferenceId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]-[M|G]-[0-9][0-9][0-9]-\d{4}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])-[A-Z]\d{4}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OrderedTransferTime" type="xs:dateTime"/>
+            <xs:element name="OrderedApprovalTime" type="xs:dateTime"/>
+            <xs:element name="OwnerId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OwnerName">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OverallResult">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="PersonCustomerType">
+                <xs:sequence>
+                    <xs:element ref="OwnerName"/>
+                    <xs:element ref="OwnerId"/>
+                    <xs:element ref="TypeOfId"/>
+                    <xs:element ref="SignatureDate"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Phone">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+     <!--   <xs:complexType name="NPOSQType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element name="BatchReference">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="ReferenceId">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:pattern value="[0-9][0-9][0-9]-[M|G]-[0-9][0-9][0-9]-\d{4}(0[1-9]|1[ 0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])-[A-Z]\d{4}"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+      <!--  <xs:complexType name="NPOSQRspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="StatusResult" type="StatusResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+     <!--   <xs:element name="QuotaDate" type="xs:date"/> 
+            <xs:element name="QuotaAmount1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="QuotaAmount2">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="QuotaAmount3">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="QuotaResultType">
+                <xs:sequence>
+                    <xs:element ref="QuotaDate"/>
+                    <xs:element name="DonorQuota" type="DonorQuotaType"/>
+                    <xs:element ref="ActivationQuota"/>
+                    <xs:element ref="MaxSNPerNPO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RDBFDType">
+                <xs:sequence>
+                    <xs:element ref="MessageSenderTelco"/>
+                    <xs:element ref="MessageReceiverTelco"/>
+                    <xs:element ref="RequestId"/>
+                    <xs:element ref="Timestamp"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="RDBFDRspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ResultCode"/>
+                    <xs:element minOccurs="0" ref="DownloadTime"/>
+                    <xs:element minOccurs="0" ref="DataFileName"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="RDBPDType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element minOccurs="0" name="SubscriberSequence">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="SubscriberNumber" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="TimeRange" type="TimeRangeType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="RDBPDRspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ResultCode"/>
+                    <xs:element minOccurs="0" ref="DownloadTime"/>
+                    <xs:element minOccurs="0" ref="DataFileName"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:element name="ReasonCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ReasonText">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="RecipientTelco">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="RecommendTransferTime" type="xs:dateTime"/>
+            <xs:element name="ReferenceId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]-[M|G]-[0-9][0-9][0-9]-\d{4}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])-[A-Z]\d{4}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="ReferenceIdType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" ref="ReferenceId"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ReferenceRequestId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9][\-|G]\d{8}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ReferenceTimestamp" type="xs:dateTime"/>
+            <xs:element name="RegistrationCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Remark">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="RequestId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9][\-|G]\d{8}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ResultCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        <xs:element name="RC2">  
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+          <xs:element name="RC3"> 
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+		<xs:element name="ResultText">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        <!--    <xs:complexType name="RNAType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="SubscriberNumber"/>
+                    <xs:element minOccurs="0" ref="RouteNumber"/>
+                    <xs:element ref="SuspectTelco"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> 
+            <xs:complexType name="RNARspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="SubscriberNumber"/>
+                    <xs:element ref="RouteNumber"/>
+                    <xs:element ref="SuspectTelco"/>
+                    <xs:element ref="RNAResultCode"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+         <!--   <xs:element name="RNAResultCode"> 
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> -->
+			<xs:element name="RouteNumber">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10"/>
+                        <xs:pattern value="[0-9]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+         <!--   <xs:complexType name="SCInfoType">
+                <xs:sequence>
+                    <xs:element ref="SubscriberNumber"/>
+                    <xs:element minOccurs="0" ref="ReferenceId"/>
+                </xs:sequence>
+            </xs:complexType> -->
+        <!--    <xs:complexType name="SCType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="SCInfo" type="SCInfoType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="SC-NOTICEType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="BroadcastInfo" type="BroadcastInfoType"/>
+                    <xs:element ref="RouteNumber"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="SC-NOTICERspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="SubscriberResult" type="SubscriberResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:complexType name="SDInfoType">
+                <xs:sequence>
+                    <xs:element ref="SubscriberNumber"/>
+                    <xs:element minOccurs="0" ref="ReferenceId"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SDType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="SDInfo" type="SDInfoType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="SDRspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="SubscriberResult" type="SubscriberResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+         <!--   <xs:complexType name="SD-NOTICEType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element name="SubscriberSequence">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="SubscriberNumber" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element ref="TerminationTime"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="SD-NOTICERspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="SubscriberResult" type="SubscriberResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:element name="ServiceType" type="xs:string"/>
+            <xs:element name="SignatureDate" type="xs:date"/>
+            <xs:element name="SubscriberNumber">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                        <xs:pattern value="[0-9]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="SubscriberResultType">
+                <xs:sequence>
+                    <xs:element ref="SubscriberNumber"/>
+                    <xs:element ref="ResultCode"/>
+                    <xs:element minOccurs="0" ref="RC2"/>
+                    <xs:element minOccurs="0" ref="RC3"/>
+                    <xs:element minOccurs="0" ref="ResultText"/>
+                </xs:sequence>
+            </xs:complexType>
+       <!--     <xs:element name="SuspectTelco">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9][0-9][0-9]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> -->
+            <xs:element name="StatusCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="StatusResultType">
+                <xs:sequence>
+                    <xs:element ref="ResultCode"/>
+                    <xs:element ref="ReferenceId"/>
+                    <xs:element minOccurs="0" ref="StatusCode"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Telefax">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+     <!--       <xs:element name="TerminationTime" type="xs:dateTime"/>
+				<xs:complexType name="TimeRangeType">
+                <xs:sequence>
+                    <xs:element ref="TimeRangeStart"/>
+                    <xs:element ref="TimeRangeEnd"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="TimeRangeEnd" type="xs:dateTime"/>
+            <xs:element name="TimeRangeStart" type="xs:dateTime"/> -->
+            <xs:element name="Timestamp" type="xs:dateTime"/>
+           <!-- <xs:complexType name="TQType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element name="DateRange" type="DateRangeType"/>
+                    <xs:element ref="DonorTelco"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:element name="TypeOfId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="99"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+         <!--   <xs:complexType name="TQRspType">
+                <xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="MessageSenderTelco"/>
+                        <xs:element ref="MessageReceiverTelco"/>
+                        <xs:element ref="RequestId"/>
+                        <xs:element ref="Timestamp"/>
+                    </xs:sequence>
+                    <xs:element ref="ResultCode"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="QuotaResult" type="QuotaResultType"/>
+                </xs:sequence>
+                <xs:attribute name="version" type="xs:string"/>
+            </xs:complexType> -->
+            <xs:element name="UndertakingAck">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[01]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="xvnesend">
+        <wsdl:part element="tns:xvneMNPFrame" name="xvneMNPFrame"/>
+    </wsdl:message>
+    <wsdl:message name="xvneSendResponse"/>
+    <wsdl:portType name="xvnemnpservicePortType">
+        <wsdl:operation name="xvnesend">
+            <wsdl:input message="tns:xvnesend" wsaw:Action="xvnesend"/>
+            <wsdl:output message="tns:xvneSendResponse" wsaw:Action="xvneMNPProtocol.xsd/xvnemnpservicePort/xvneSendResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="xvnemnpservicePortSOAP11Binding" type="tns:xvnemnpservicePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="xvnesend">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="xvnemnpservicePortSOAP12Binding" type="tns:xvnemnpservicePortType">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="xvnesend">
+            <soap12:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="xvnemnpservicePortHttpBinding" type="tns:xvnemnpservicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="xvnesend">
+            <http:operation location="xvnemnpservicePort/xvnesend"/>
+            <wsdl:input>
+                <mime:content part="xvnesend" type="text/xml"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="xvnesend" type="text/xml"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="xvnemnpservicePort">
+        <wsdl:port binding="tns:xvnemnpservicePortSOAP11Binding" name="xvnemnpservicePortSOAP11port_http">
+            <soap:address location="http://localhost:9000/xvneMNPWebService/services/xvnemnpservicePortSOAP11port_http"/>
+        </wsdl:port>
+        <wsdl:port binding="tns:xvnemnpservicePortSOAP12Binding" name="xvnemnpservicePortSOAP12port_http">
+            <soap12:address location="http://localhost:9000/xvneMNPWebService/services/xvnemnpservicePort"/>
+        </wsdl:port>
+        <wsdl:port binding="tns:xvnemnpservicePortHttpBinding" name="xvnemnpservicePortHttpport">
+            <http:address location="http://localhost:9000/xvneMNPWebService/services/xvnemnpservicePort"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

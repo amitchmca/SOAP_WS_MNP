@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SingtelXvneMnpService" 
+				targetNamespace="http://mnp.mvne.group.singtel.com/" 
+				xmlns:ns1="http://group.singtel.com/mvne/mnp" 
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+				xmlns:tns="http://mnp.mvne.group.singtel.com/" 
+				xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+				
+<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://group.singtel.com/mvne/mnp"
+				schemaLocation="SingtelXvneMNP_schema1.xsd" />			
+		</xsd:schema>
+	</wsdl:types>
+
+
+  <wsdl:import namespace="http://group.singtel.com/mvne/mnp" location="XvneMNP.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="SingtelXvneMnpServiceSoapBinding" type="ns1:XvneMNP">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="xvneNPO">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="xvneNPO">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="xvneNPOResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap12:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitNPOT">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="submitNPOT">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="submitNPOTResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap12:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="xvneSD">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="xvneSD">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="xvneSDResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap12:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SingtelXvneMnpService">
+    <wsdl:port name="MvneMnpPort" binding="tns:SingtelXvneMnpServiceSoapBinding">
+      <soap12:address location="http://localhost:9090/MvneMnpPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

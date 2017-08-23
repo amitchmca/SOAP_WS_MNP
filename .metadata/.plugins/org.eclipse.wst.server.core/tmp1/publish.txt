@@ -1,0 +1,9 @@
+#GlassFish 3
+#Sat Aug 19 15:10:04 SGT 2017
+org.eclipse.jst.jee.server\:MVNE-MNP=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\MVNE-MNP
+org.eclipse.jst.jee.server\:XvneMNP=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\XvneMNP
+org.eclipse.jst.jee.server\:xVNE-2=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\xVNE-2
+org.eclipse.jst.jee.server\:MVNE_MNP=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\MVNE_MNP
+org.eclipse.jst.jee.server\:xVNE=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\xVNE
+org.eclipse.jst.jee.server\:xvneMNP=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\xvneMNP
+org.eclipse.jst.jee.server\:WebServiceProjectEAR=C\:\\Work\\ProgramFiles\\glassfish\\glassfish-4.1\\glassfish\\domains\\domain1\\eclipseApps\\WebServiceProjectEAR

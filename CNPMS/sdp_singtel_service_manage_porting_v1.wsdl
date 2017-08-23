@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions name="ManagePortingService"
+	targetNamespace="http://group.singtel.com/manageporting/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:sgc="http://group.singtel.com/enterpriseapplicationintegration/common-types/v1"
+	xmlns:mp="http://group.singtel.com/manageporting-types/v1" xmlns:tns="http://group.singtel.com/manageporting/v1">
+
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://group.singtel.com/manageporting-types/v1"
+				schemaLocation="schemas/sdp_singtel_service_manage_porting_v1.xsd" />
+			<xsd:import
+				namespace="http://group.singtel.com/enterpriseapplicationintegration/common-types/v1"
+				schemaLocation="common-schemas/sdp_singtel_service_common.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+
+	<!--common headers -->
+	<wsdl:message name="sdpServiceHeaders">
+		<wsdl:part name="sdpServiceHeaders" element="sgc:sdpServiceHeaders" />
+	</wsdl:message>
+	<wsdl:message name="sdpServiceResponseHeaders">
+		<wsdl:part name="sdpServiceResponseHeaders" element="sgc:sdpServiceResponseHeaders" />
+	</wsdl:message>
+
+	<wsdl:message name="submitPortRequest">
+		<wsdl:part name="submitPortRequest" element="mp:submitPortRequest" />
+	</wsdl:message>
+	<wsdl:message name="submitPortResponse">
+		<wsdl:part name="submitPortResponse" element="mp:submitPortResponse" />
+	</wsdl:message>
+	<wsdl:message name="submitPortRequestFault">
+		<wsdl:part name="submitPortRequestFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="portInNotification">
+		<wsdl:part name="portInNotification" element="mp:portInNotification" />
+	</wsdl:message>
+	<wsdl:message name="portInNotificationResponse">
+		<wsdl:part name="portInNotificationResponse" element="mp:portInNotificationResponse" />
+	</wsdl:message>
+	<wsdl:message name="portInNotificationFault">
+		<wsdl:part name="portInNotificationFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="notifyServiceDisconnectionComplete">
+		<wsdl:part name="notifyServiceDisconnectionComplete"
+			element="mp:notifyServiceDisconnectionComplete" />
+	</wsdl:message>
+	<wsdl:message name="notifyServiceDisconnectionCompleteResponse">
+		<wsdl:part name="notifyServiceDisconnectionCompleteResponse"
+			element="mp:notifyServiceDisconnectionCompleteResponse" />
+	</wsdl:message>
+	<wsdl:message name="notifyServiceDisconnectionCompleteFault">
+		<wsdl:part name="notifyServiceDisconnectionCompleteFault"
+			element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="cancelPortInRequest">
+		<wsdl:part name="cancelPortInRequest" element="mp:cancelPortInRequest" />
+	</wsdl:message>
+	<wsdl:message name="cancelPortInResponse">
+		<wsdl:part name="cancelPortInResponse" element="mp:cancelPortInResponse" />
+	</wsdl:message>
+	<wsdl:message name="cancelPortInFault">
+		<wsdl:part name="cancelPortInFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="orderTicketQuery">
+		<wsdl:part name="orderTicketQuery" element="mp:orderTicketQuery" />
+	</wsdl:message>
+	<wsdl:message name="orderTicketQueryResponse">
+		<wsdl:part name="orderTicketQueryResponse" element="mp:orderTicketQueryResponse" />
+	</wsdl:message>
+	<wsdl:message name="orderTicketQueryFault">
+		<wsdl:part name="orderTicketQueryFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="orderTicketQueryResult">
+		<wsdl:part name="orderTicketQueryResult" element="mp:orderTicketQueryResult" />
+	</wsdl:message>
+	<wsdl:message name="orderTicketQueryResultResponse">
+		<wsdl:part name="orderTicketQueryResultResponse" element="mp:orderTicketQueryResultResponse" />
+	</wsdl:message>
+	<wsdl:message name="orderTicketQueryResultFault">
+		<wsdl:part name="orderTicketQueryResultFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="notifyPortOutValidation">
+		<wsdl:part name="notifyPortOutValidation" element="mp:notifyPortOutValidation" />
+	</wsdl:message>
+	<wsdl:message name="notifyPortOutValidationResponse">
+		<wsdl:part name="notifyPortOutValidationResponse" element="mp:notifyPortOutValidationResponse" />
+	</wsdl:message>
+	<wsdl:message name="notifyPortOutValidationFault">
+		<wsdl:part name="notifyPortOutValidationFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="validatePortOut">
+		<wsdl:part name="validatePortOut" element="mp:validatePortOut" />
+	</wsdl:message>
+	<wsdl:message name="validatePortOutResponse">
+		<wsdl:part name="validatePortOutResponse" element="mp:validatePortOutResponse" />
+	</wsdl:message>
+	<wsdl:message name="validatePortOutFault">
+		<wsdl:part name="validatePortOutFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="confirmPortOutOrder">
+		<wsdl:part name="confirmPortOutOrder" element="mp:confirmPortOutOrder" />
+	</wsdl:message>
+	<wsdl:message name="confirmPortOutOrderResponse">
+		<wsdl:part name="confirmPortOutOrderResponse" element="mp:confirmPortOutOrderResponse" />
+	</wsdl:message>
+	<wsdl:message name="confirmPortOutOrderFault">
+		<wsdl:part name="confirmPortOutOrderFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="disconnectService">
+		<wsdl:part name="disconnectService" element="mp:disconnectService" />
+	</wsdl:message>
+	<wsdl:message name="disconnectServiceResponse">
+		<wsdl:part name="disconnectServiceResponse" element="mp:disconnectServiceResponse" />
+	</wsdl:message>
+	<wsdl:message name="disconnectServiceFault">
+		<wsdl:part name="disconnectServiceFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="cancelPortOut">
+		<wsdl:part name="cancelPortOut" element="mp:cancelPortOut" />
+	</wsdl:message>
+	<wsdl:message name="cancelPortOutResponse">
+		<wsdl:part name="cancelPortOutResponse" element="mp:cancelPortOutResponse" />
+	</wsdl:message>
+	<wsdl:message name="cancelPortOutFault">
+		<wsdl:part name="cancelPortOutFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="portOutNotification">
+		<wsdl:part name="portOutNotification" element="mp:portOutNotification" />
+	</wsdl:message>
+	<wsdl:message name="portOutNotificationResponse">
+		<wsdl:part name="portOutNotificationResponse" element="mp:portOutNotificationResponse" />
+	</wsdl:message>
+	<wsdl:message name="portOutNotificationFault">
+		<wsdl:part name="portOutNotificationFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="queryCarrierInfo">
+		<wsdl:part name="queryCarrierInfo" element="mp:queryCarrierInfo" />
+	</wsdl:message>
+	<wsdl:message name="queryCarrierInfoResponse">
+		<wsdl:part name="queryCarrierInfoResponse" element="mp:queryCarrierInfoResponse" />
+	</wsdl:message>
+	<wsdl:message name="queryCarrierInfoFault">
+		<wsdl:part name="queryCarrierInfoFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+	<wsdl:message name="connectService">
+		<wsdl:part name="connectService" element="mp:connectService" />
+	</wsdl:message>
+	<wsdl:message name="connectServiceResponse">
+		<wsdl:part name="connectServiceResponse" element="mp:connectServiceResponse" />
+	</wsdl:message>
+	<wsdl:message name="connectServiceFault">
+		<wsdl:part name="connectServiceFault" element="sgc:sdpDetails" />
+	</wsdl:message>
+
+
+	<wsdl:portType name="ManageportingPort">
+		<wsdl:operation name="submitPortRequest">
+			<wsdl:input message="tns:submitPortRequest" name="submitPortRequest" />
+			<wsdl:output message="tns:submitPortResponse" name="submitPortResponse" />
+			<wsdl:fault name="submitPortRequestFault" message="tns:submitPortRequestFault" />
+		</wsdl:operation>
+		<wsdl:operation name="portInNotification">
+			<wsdl:input message="tns:portInNotification" name="portInNotification" />
+			<wsdl:output message="tns:portInNotificationResponse"
+				name="portInNotificationResponse" />
+			<wsdl:fault name="portInNotificationFault" message="tns:portInNotificationFault" />
+		</wsdl:operation>
+		<wsdl:operation name="notifyServiceDisconnectionComplete">
+			<wsdl:input message="tns:notifyServiceDisconnectionComplete"
+				name="notifyServiceDisconnectionComplete" />
+			<wsdl:output message="tns:notifyServiceDisconnectionCompleteResponse"
+				name="notifyServiceDisconnectionCompleteResponse" />
+			<wsdl:fault name="notifyServiceDisconnectionCompleteFault"
+				message="tns:notifyServiceDisconnectionCompleteFault" />
+		</wsdl:operation>
+		<wsdl:operation name="cancelPortInRequest">
+			<wsdl:input message="tns:cancelPortInRequest" name="cancelPortInRequest" />
+			<wsdl:output message="tns:cancelPortInResponse" name="cancelPortInResponse" />
+			<wsdl:fault name="cancelPortInRequestFault" message="tns:cancelPortInFault" />
+		</wsdl:operation>
+		<wsdl:operation name="orderTicketQuery">
+			<wsdl:input message="tns:orderTicketQuery" name="orderTicketQuery" />
+			<wsdl:output message="tns:orderTicketQueryResponse" name="orderTicketQueryResponse" />
+			<wsdl:fault name="orderTicketQueryFault" message="tns:orderTicketQueryFault" />
+		</wsdl:operation>
+		<wsdl:operation name="orderTicketQueryResult">
+			<wsdl:input message="tns:orderTicketQueryResult" name="orderTicketQueryResult" />
+			<wsdl:output message="tns:orderTicketQueryResultResponse"
+				name="orderTicketQueryResultResponse" />
+			<wsdl:fault name="orderTicketQueryResultFault" message="tns:orderTicketQueryResultFault" />
+		</wsdl:operation>
+		<wsdl:operation name="notifyPortOutValidation">
+			<wsdl:input message="tns:notifyPortOutValidation" name="notifyPortOutValidation" />
+			<wsdl:output message="tns:notifyPortOutValidationResponse"
+				name="notifyPortOutValidationResponse" />
+			<wsdl:fault name="notifyPortOutValidationFault" message="tns:notifyPortOutValidationFault" />
+		</wsdl:operation>
+		<wsdl:operation name="validatePortOut">
+			<wsdl:input message="tns:validatePortOut" name="validatePortOut" />
+			<wsdl:output message="tns:validatePortOutResponse" name="validatePortOutResponse" />
+			<wsdl:fault name="validatePortOutFault" message="tns:validatePortOutFault" />
+		</wsdl:operation>
+		<wsdl:operation name="confirmPortOutOrder">
+			<wsdl:input message="tns:confirmPortOutOrder" name="confirmPortOutOrder" />
+			<wsdl:output message="tns:confirmPortOutOrderResponse"
+				name="confirmPortOutOrderResponse" />
+			<wsdl:fault name="confirmPortOutOrderFault" message="tns:confirmPortOutOrderFault" />
+		</wsdl:operation>
+		<wsdl:operation name="disconnectService">
+			<wsdl:input message="tns:disconnectService" name="disconnectService" />
+			<wsdl:output message="tns:disconnectServiceResponse"
+				name="disconnectServiceResponse" />
+			<wsdl:fault name="disconnectServiceFault" message="tns:disconnectServiceFault" />
+		</wsdl:operation>
+		<wsdl:operation name="cancelPortOut">
+			<wsdl:input message="tns:cancelPortOut" name="cancelPortOut" />
+			<wsdl:output message="tns:cancelPortOutResponse" name="cancelPortOutResponse" />
+			<wsdl:fault name="cancelPortOutFault" message="tns:cancelPortOutFault" />
+		</wsdl:operation>
+		<wsdl:operation name="portOutNotification">
+			<wsdl:input message="tns:portOutNotification" name="portOutNotification" />
+			<wsdl:output message="tns:portOutNotificationResponse"
+				name="portOutNotificationResponse" />
+			<wsdl:fault name="portOutNotificationFault" message="tns:portOutNotificationFault" />
+		</wsdl:operation>
+		<wsdl:operation name="queryCarrierInfo">
+			<wsdl:input message="tns:queryCarrierInfo" name="queryCarrierInfo" />
+			<wsdl:output message="tns:queryCarrierInfoResponse" name="queryCarrierInfoResponse" />
+			<wsdl:fault name="queryCarrierInfoFault" message="tns:queryCarrierInfoFault" />
+		</wsdl:operation>
+		<wsdl:operation name="connectService">
+			<wsdl:input message="tns:connectService" name="connectService" />
+			<wsdl:output message="tns:connectServiceResponse" name="connectServiceResponse" />
+			<wsdl:fault name="connectServiceFault" message="tns:connectServiceFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+
+	<wsdl:binding name="ManageportingPort_SOAPBinding" type="tns:ManageportingPort">
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="submitPortRequest">
+			<soap:operation soapAction="submitPortRequest" />
+			<wsdl:input name="submitPortRequest">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="submitPortResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="submitPortRequestFault">
+				<soap:fault name="submitPortRequestFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="portInNotification">
+			<soap:operation soapAction="portInNotification" />
+			<wsdl:input name="portInNotification">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="portInNotificationResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="portInNotificationFault">
+				<soap:fault name="portInNotificationFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="notifyServiceDisconnectionComplete">
+			<soap:operation soapAction="notifyServiceDisconnectionComplete" />
+			<wsdl:input name="notifyServiceDisconnectionComplete">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="notifyServiceDisconnectionCompleteResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="notifyServiceDisconnectionCompleteFault">
+				<soap:fault name="notifyServiceDisconnectionCompleteFault"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="cancelPortInRequest">
+			<soap:operation soapAction="cancelPortInRequest" />
+			<wsdl:input name="cancelPortInRequest">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="cancelPortInResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="cancelPortInRequestFault">
+				<soap:fault name="cancelPortInRequestFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="orderTicketQuery">
+			<soap:operation soapAction="orderTicketQuery" />
+			<wsdl:input name="orderTicketQuery">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="orderTicketQueryResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="orderTicketQueryFault">
+				<soap:fault name="orderTicketQueryFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="orderTicketQueryResult">
+			<soap:operation soapAction="orderTicketQueryResult" />
+			<wsdl:input name="orderTicketQueryResult">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="orderTicketQueryResultResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="orderTicketQueryResultFault">
+				<soap:fault name="orderTicketQueryResultFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="notifyPortOutValidation">
+			<soap:operation soapAction="notifyPortOutValidation" />
+			<wsdl:input name="notifyPortOutValidation">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="notifyPortOutValidationResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="notifyPortOutValidationFault">
+				<soap:fault name="notifyPortOutValidationFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="validatePortOut">
+			<soap:operation soapAction="validatePortOut" />
+			<wsdl:input name="validatePortOut">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="validatePortOutResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="validatePortOutFault">
+				<soap:fault name="validatePortOutFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="confirmPortOutOrder">
+			<soap:operation soapAction="confirmPortOutOrder" />
+			<wsdl:input name ="confirmPortOutOrder">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name ="confirmPortOutOrderResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="confirmPortOutOrderFault">
+				<soap:fault name="confirmPortOutOrderFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="disconnectService">
+			<soap:operation soapAction="disconnectService" />
+			<wsdl:input name="disconnectService">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="disconnectServiceResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="disconnectServiceFault">
+				<soap:fault name="disconnectServiceFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="cancelPortOut">
+			<soap:operation soapAction="cancelPortOut" />
+			<wsdl:input name="cancelPortOut">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="cancelPortOutResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="cancelPortOutFault">
+				<soap:fault name="cancelPortOutFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="portOutNotification">
+			<soap:operation soapAction="portOutNotification" />
+			<wsdl:input name="portOutNotification">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="portOutNotificationResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="portOutNotificationFault">
+				<soap:fault name="portOutNotificationFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="queryCarrierInfo">
+			<soap:operation soapAction="queryCarrierInfo" />
+			<wsdl:input name="queryCarrierInfo">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="queryCarrierInfoResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="queryCarrierInfoFault">
+				<soap:fault name="queryCarrierInfoFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="connectService">
+			<soap:operation soapAction="connectService" />
+			<wsdl:input name="connectService">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceHeaders" part="sdpServiceHeaders"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output name="connectServiceResponse">
+				<soap:body use="literal" />
+				<soap:header message="tns:sdpServiceResponseHeaders"
+					part="sdpServiceResponseHeaders" use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="connectServiceFault">
+				<soap:fault name="connectServiceFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="ManagePorting">
+		<wsdl:port binding="tns:ManageportingPort_SOAPBinding" name="ManagePortingService">
+			<soap:address
+				location="http://localhost:9090/networknumberinventorymanagement/ManageNumberPorting" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

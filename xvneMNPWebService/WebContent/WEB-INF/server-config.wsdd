@@ -1,0 +1,109 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="D:\ProgramFiles\EclipseOxygen\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\xvneInternalMNP\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="xvnemnpservicePortSOAP11port_http" provider="java:RPC" style="document" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="mnpservicePortPortType"/>
+  <ns1:parameter name="className" value="xsd.xvneMNPProtocol.XvnemnpservicePortSOAP11BindingSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="xvnemnpservicePortSOAP11port_http"/>
+  <ns1:parameter name="schemaQualified" value="xvneMNPProtocol.xsd"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="xvneMNPProtocol.xsd"/>
+  <ns1:parameter name="wsdlServiceElement" value="xvnemnpservicePort"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns1:&gt;OwnerId" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns1="xvneMNPProtocol.xsd" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns2:&gt;RequestId" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns2="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns3:&gt;MessageReceiverTelco" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns3="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns4:&gt;Name" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns4="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns5:&gt;ByLOA" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns5="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns6:&gt;ReasonCode" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.math.BigInteger" xmlns:ns6="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:AuthorType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.AuthorType" xmlns:ns7="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns8:&gt;ReferenceId" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns8="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:CorporateCustomerType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.CorporateCustomerType" xmlns:ns9="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns10:&gt;RouteNumber" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns10="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns11:&gt;SubscriberNumber" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns11="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:PersonCustomerType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.PersonCustomerType" xmlns:ns12="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns13:&gt;OldReferenceId" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns13="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns14:&gt;Phone" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns14="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns15:&gt;Email" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns15="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:&gt;xvneMNPFrame" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.XvneMNPFrame" xmlns:ns16="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns17:&gt;DonorTelco" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns17="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns18:SDType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.SDType" xmlns:ns18="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns19:&gt;RegistrationCode" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns19="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns20:NPOTType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.NPOTType" xmlns:ns20="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns21:&gt;AccountNumber" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns21="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns22:&gt;MessageSenderTelco" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns22="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns23:&gt;ReasonText" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns23="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns24:&gt;Remark" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns24="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns25:&gt;TypeOfId" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.math.BigInteger" xmlns:ns25="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns26:&gt;RecipientTelco" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns26="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns27:CANType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.CANType" xmlns:ns27="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns28:&gt;CompanyName" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns28="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns29:&gt;Telefax" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns29="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns30:&gt;OwnerName" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns30="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns31:&gt;UndertakingAck" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns31="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns32:SDInfoType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.SDInfoType" xmlns:ns32="xvneMNPProtocol.xsd"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns33:NPOType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:xsd.xvneMNPProtocol.NPOType" xmlns:ns33="xvneMNPProtocol.xsd"/>
+  <ns1:arrayMapping innerType="xsd:string" languageSpecificType="java:java.lang.String[]" qname="ns34:SubscriberSequence" xmlns:ns34="xvneMNPProtocol.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:arrayMapping innerType="xsd:string" languageSpecificType="java:java.lang.String[]" qname="ns35:SubscriberSequence" xmlns:ns35="xvneMNPProtocol.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="xvneMnpPort" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="xvneMnpPortType"/>
+  <ns1:parameter name="className" value="org.example.www.xvneMnpService.XvneMnpServiceBindingSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="xvneMnpPort"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://www.example.org/xvneMnpService/"/>
+  <ns1:parameter name="wsdlServiceElement" value="xvneMnpWebService"/>
+  <ns1:parameter name="schemaUnqualified" value="http://www.example.org/xvneMnpService/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns36:errorType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.xvneMnpService.ErrorType" xmlns:ns36="http://www.example.org/xvneMnpService/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns37:SubscriberNumberType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.example.www.xvneMnpService.SubscriberNumberType" xmlns:ns37="http://www.example.org/xvneMnpService/"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

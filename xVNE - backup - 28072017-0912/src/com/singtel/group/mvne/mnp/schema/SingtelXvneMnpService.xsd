@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://group.singtel.com/mvne/mnp" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://group.singtel.com/mvne/mnp">
+
+<xs:element name="Error" type="tns:error"/>
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="MvneMNPReq" nillable="true" type="xs:anyType"/>
+
+<xs:element name="MvneMNPRes" type="tns:xvneSDResponse"/>
+
+<xs:element name="MvneNPORes" type="tns:xvneNPOResponse"/>
+
+<xs:element name="MvneNPOTPRes" type="tns:xvneNPOTResponse"/>
+
+<xs:element name="Param" type="tns:param"/>
+
+<xs:element name="Params" type="tns:params"/>
+
+<xs:element name="PortDetails" type="tns:portDetails"/>
+
+<xs:element name="SubscriberSequence" type="tns:subscriberSequence"/>
+
+<xs:element name="XvneNPO" type="tns:XvneNPO"/>
+
+<xs:element name="XvneNPOResponse" type="tns:XvneNPOResponse"/>
+
+<xs:element name="XvneNPOT" type="tns:XvneNPOT"/>
+
+<xs:element name="XvneNPOTResponse" type="tns:XvneNPOTResponse"/>
+
+<xs:element name="XvneSD" type="tns:XvneSD"/>
+
+<xs:element name="XvneSDResponse" type="tns:XvneSDResponse"/>
+
+<xs:complexType name="XvneNPOT">
+<xs:sequence>
+<xs:element name="arg0" type="tns:xvneNPOTRequest" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="xvneNPOTRequest">
+<xs:sequence>
+<xs:element name="portDetails" type="tns:portDetails" minOccurs="0"/>
+<xs:element name="mvno" type="tns:mvno" minOccurs="0"/>
+<xs:element name="subscriberSequence" type="tns:subscriberSequence" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="params" type="tns:params" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="portDetails">
+<xs:sequence>
+<xs:element name="MessageSenderTelco" type="xs:string" minOccurs="0"/>
+<xs:element name="MessageReceiverTelco" type="xs:string" minOccurs="0"/>
+<xs:element name="RequestId" type="xs:string" minOccurs="0"/>
+<xs:element name="timeStamp" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="ReferenceId" type="xs:string" minOccurs="0"/>
+<xs:element name="RecipientTelco" type="xs:string" minOccurs="0"/>
+<xs:element name="DonorTelco" type="xs:string" minOccurs="0"/>
+<xs:element name="messageType" type="xs:string" minOccurs="0"/>
+<xs:element name="ServiceType" type="xs:string" minOccurs="0"/>
+<xs:element name="Author" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mvno">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subscriberSequence">
+<xs:sequence>
+<xs:element name="Subscriber" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element name="ownerId" type="xs:string" minOccurs="0"/>
+<xs:element name="ownerName" type="xs:string" minOccurs="0"/>
+<xs:element name="typeOfId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="params">
+<xs:sequence>
+<xs:element name="Param" type="tns:param" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="param">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="value" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="XvneNPOTResponse">
+<xs:sequence>
+<xs:element name="MvneMNPframe" type="tns:xvneNPOTResponse" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="xvneNPOTResponse">
+<xs:sequence>
+<xs:element name="portDetails" type="tns:portDetails" minOccurs="0"/>
+<xs:element name="mvno" type="tns:mvno" minOccurs="0"/>
+<xs:element name="subscriberSequence" type="tns:subscriberSequence" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="params" type="tns:params" minOccurs="0"/>
+<xs:element name="result" type="tns:result" minOccurs="0"/>
+<xs:element name="error" type="tns:error" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="result">
+<xs:sequence>
+<xs:element name="action" type="xs:string" minOccurs="0"/>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="desc" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="error">
+<xs:sequence>
+<xs:element name="errCode" type="xs:string" minOccurs="0"/>
+<xs:element name="errDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="errAction" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="XvneSD">
+<xs:sequence>
+<xs:element name="arg0" type="tns:xvneSDRequest" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="xvneSDRequest">
+<xs:sequence>
+<xs:element name="portDetails" type="tns:portDetails" minOccurs="0"/>
+<xs:element name="mvno" type="tns:mvno" minOccurs="0"/>
+<xs:element name="subscriberSequence" type="tns:subscriberSequence" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="params" type="tns:params" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="XvneSDResponse">
+<xs:sequence>
+<xs:element name="XvneMNPFrame" type="tns:xvneSDResponse" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="xvneSDResponse">
+<xs:sequence>
+<xs:element name="portDetails" type="tns:portDetails" minOccurs="0"/>
+<xs:element name="mvno" type="tns:mvno" minOccurs="0"/>
+<xs:element name="subscriberSequence" type="tns:subscriberSequence" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="params" type="tns:params" minOccurs="0"/>
+<xs:element name="result" type="tns:result" minOccurs="0"/>
+<xs:element name="error" type="tns:error" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="XvneNPO">
+<xs:sequence>
+<xs:element name="arg0" type="tns:xvneNPORequest" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="xvneNPORequest">
+<xs:sequence>
+<xs:element name="portDetails" type="tns:portDetails" minOccurs="0"/>
+<xs:element name="mvno" type="tns:mvno" minOccurs="0"/>
+<xs:element name="subscriberSequence" type="tns:subscriberSequence" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="params" type="tns:params" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="XvneNPOResponse">
+<xs:sequence>
+<xs:element name="XvneMNPFrame" type="tns:xvneNPOResponse" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="xvneNPOResponse">
+<xs:sequence>
+<xs:element name="portDetails" type="tns:portDetails" minOccurs="0"/>
+<xs:element name="mvno" type="tns:mvno" minOccurs="0"/>
+<xs:element name="subscriberSequence" type="tns:subscriberSequence" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="params" type="tns:params" minOccurs="0"/>
+<xs:element name="result" type="tns:result" minOccurs="0"/>
+<xs:element name="error" type="tns:error" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,4 @@
+127.0.0.1 - - [14/Jul/2017:15:13:55 +0800] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [14/Jul/2017:15:16:48 +0800] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [14/Jul/2017:15:16:56 +0800] "POST /xvneInternalMNP/services/AdminService HTTP/1.0" 200 291
+127.0.0.1 - - [14/Jul/2017:15:16:56 +0800] "POST /xvneInternalMNP/services/AdminService HTTP/1.0" 200 13168

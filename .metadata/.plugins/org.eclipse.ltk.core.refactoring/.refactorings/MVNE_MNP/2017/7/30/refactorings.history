@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;npor&apos; in &apos;com.singtel.group.mvne.mnp.types.NPOResponse.populateNPOC(...)&apos; to &apos;npoc&apos;&#x0D;&#x0A;- Original project: &apos;MVNE_MNP&apos;&#x0D;&#x0A;- Original element: &apos;com.singtel.group.mvne.mnp.types.NPOResponse.populateNPOC(NPOC).npor&apos;&#x0D;&#x0A;- Renamed element: &apos;npor&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;npor&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.singtel.group.mvne.mnp.types{NPOResponse.java[NPOResponse~populateNPOC~QNPOC;@npor!675!683!680!683!QNPOC;!0!true" name="npoc" references="true" stamp="1501039149749" version="1.0"/>
+</session>

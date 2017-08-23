@@ -1,0 +1,3 @@
+PREFERENCE_RUNTIME=org.eclipse.jst.ws.axis2.creation.axis2WebServiceRT
+PREFERENCE_SERVER=glassfish.server
+eclipse.preferences.version=1
